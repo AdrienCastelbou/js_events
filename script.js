@@ -71,26 +71,34 @@ for (let index = 0; index < cards_img.length; index++) {
 // F7
 
 button_secondary = document.getElementsByClassName("btn-secondary")[0];
-button_secondary.addEventListener('click', function () {
+button_secondary.addEventListener('click', function (e) {
+  e.preventDefault()
   let row = document.getElementsByClassName('row')[1];
-  row.insertBefore(row.childNodes[11], row.childNodes[1])
+  first_card = document.querySelectorAll('.col-md-4')[0];
+  last_card = document.querySelectorAll('.col-md-4')[5];
+  row.insertBefore(last_card, first_card);
+
 })
-
-
-
 // F8
 
 
 button_primary = document.getElementsByClassName("btn-primary")[0];
 button_primary.addEventListener('click', function (e) {
+  e.preventDefault()
   let row = document.getElementsByClassName('row')[1];
   first_card = document.querySelectorAll('.col-md-4')[0];
-  last_card = document.querySelectorAll('.col-md-4')[6];
-  row.insertBefore(first_card, last_card);
-  e.preventDefault();
-  
+  last_card = document.querySelectorAll('.col-md-4')[5];
+  row.insertBefore(first_card, last_card.nextSibling);
+
 })
 
+// F9
+
+title = document.getElementsByTagName('strong')[0];
+title.addEventListener('keydown', function(e) {
+  e.preventDefault();
+  console.log('a')
+})
 
 
 
